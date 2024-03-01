@@ -11,6 +11,23 @@
         "src": "/(.*)",
         "dest": "/"
       }
+    ],
+     "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+    ],
+    "headers": [
+        {
+          "source": "/(.*)",
+          "headers": [
+            { "key": "Access-Control-Allow-Origin", "value": "*" }
+          ]
+        },
+        {
+          "source": "/https://nktdc.vercel.app/(.*)",
+          "headers": [
+            { "key": "Access-Control-Allow-Origin", "value": "*" }
+          ]
+        }  
     ]
    
   }
