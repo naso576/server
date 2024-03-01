@@ -71,6 +71,11 @@ res.send('success');
 
     History1.find({})
     .then(data => {
+        res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       res.send(data);
     })
     .catch(err => {
@@ -96,6 +101,11 @@ res.send('success');
                                 }
                         
                       ).then(data=>{
+        res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
                         res.send(data)
                       }).catch(err=>{
                         res.status(500).send({
@@ -129,6 +139,11 @@ res.send('success');
                                 }
                         
                       ).then(data=>{
+        res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
                         res.send(data)
                       }).catch(err=>{
                         res.status(500).send({
@@ -160,6 +175,11 @@ res.send('success');
                                 }
                         
                       ).then(data=>{
+        res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
                         res.send(data)
                       }).catch(err=>{
                         res.status(500).send({
@@ -179,6 +199,11 @@ res.send('success');
   
       History1.find({profileNo:id})
         .then(data => {
+            res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
           if (!data)
             res.status(404).send({ message: "Not found Tutorial with id " + id });
           else res.send(data);
@@ -209,6 +234,11 @@ res.send('success');
                                 }
                         
                       ).then(data=>{
+                        res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
                         res.send(data)
                       }).catch(err=>{
                         res.status(500).send({
@@ -225,6 +255,11 @@ res.send('success');
   
       History1.find({nextVisitDate : { "$gte" : new Date()}})
         .then(data => {
+            res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
           if (!data)
             res.status(404).send({ message: "No data" });
           else res.send(data);
