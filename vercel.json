@@ -11,14 +11,5 @@
         "src": "/(.*)",
         "dest": "/"
       }
-    ],    
-    "headers": [
-       
-        {
-          "source": "/https://nktdc.vercel.app//(.*)",
-          "headers": [
-            { "key": "Access-Control-Allow-Origin", "value": "*" }
-          ]
-        }  
     ]
   }
