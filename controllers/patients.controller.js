@@ -76,6 +76,11 @@ exports.findAll = (req, res) => {
 
   Patient.find({})
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       res.send(data);
     })
     .catch(err => {
@@ -96,6 +101,11 @@ exports.findPatient = (req, res,next) => {
 
   Patient.find({profileNo:id})
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       if (!data)
         res.status(404).send({ message: "Not found Tutorial with id " + id });
       else res.send(data);
@@ -120,6 +130,11 @@ exports.update = (req, res) => {
 
   Patient.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       if (!data) {
         res.status(404).send({
           message: `Cannot update Patient with id=${id}. Maybe Patient was not found!`
@@ -139,6 +154,11 @@ exports.delete = (req, res) => {
 
   Patient.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       if (!data) {
         res.status(404).send({
           message: `Cannot delete Patient with id=${id}. Maybe Patient was not found!`
@@ -160,6 +180,11 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
     Patient.deleteMany({})
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       res.send({
         message: `${data.deletedCount} Patient were deleted successfully!`
       });
@@ -176,6 +201,11 @@ exports.deleteAll = (req, res) => {
 exports.findAllPublished = (req, res) => {
     Patient.find({ published: true })
     .then(data => {
+      res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
       res.send(data);
     })
     .catch(err => {
