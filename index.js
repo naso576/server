@@ -20,7 +20,8 @@ var corsOptions = {
   // access-control-allow-credentials:true,
  credentials:true,            
     optionSuccessStatus:200,
-    allowedHeaders :'content-type'
+    allowedHeaders :'content-type',
+  
 };
 
 app.use(cors(corsOptions));
@@ -61,6 +62,11 @@ app.get("/findPatientHistory/:id",findPatientHistory);
 
 app.post("/register",cors(corsOptions), create, function(req,res)
             {
+               res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
             res.send({key:'successfull'})
 
              }
