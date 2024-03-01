@@ -13,17 +13,17 @@
       }
     ],
      "rewrites": [
-        { "source": "/(.*)", "destination": "/" }
+        { "src": "/(.*)", "destination": "/" }
     ],
     "headers": [
         {
-          "source": "/(.*)",
+          "src": "/(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
         },
         {
-          "source": "/https://nktdc.vercel.app/(.*)",
+          "src": "https://nktdc.vercel.app/(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
