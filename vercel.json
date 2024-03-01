@@ -17,16 +17,11 @@
     ],
     "headers": [
         {
-          "src": "/(.*)",
+        
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
-        },
-        {
-          "src": "https://nktdc.vercel.app/(.*)",
-          "headers": [
-            { "key": "Access-Control-Allow-Origin", "value": "*" }
-          ]
+        
         }  
     ]
    
