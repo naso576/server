@@ -17,8 +17,8 @@ const app = express();
 
 var corsOptions = {
   origin: "http://nktdc.vercel.app/",
-  access-control-allow-credentials:true,
- // credentials:true,            
+  // access-control-allow-credentials:true,
+ credentials:true,            
     optionSuccessStatus:200,
     allowedHeaders :'content-type'
 };
