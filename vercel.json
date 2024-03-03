@@ -9,10 +9,15 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "index.js",
+        "dest": "/",
          "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+     "Access-Control-Allow-Credentials": "true",
+             "Access-Control-Allow-Headers":"content-type",
+               "Content-Type": "application/json"
+              "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, PATCH, OPTIONS" 
+
       }
       }
     ]
