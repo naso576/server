@@ -94,7 +94,7 @@ module.exports = mongoose => {
           neurologicalExamination: String,
           clinicalDiagnosis: String,
           investigationsRequired : Array,
-          nextVisitDate : Date,
+          nextVisitDate : String,
 
 
       },
