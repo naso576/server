@@ -14,6 +14,16 @@ const templateroute = require('./routes/templates.routes');
 const tabletsroute = require('./routes/tablets.routes')
 const app = express();
 // const findAll = require('./routes/patients.routes');
+  const headers = {
+       
+       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
+      'Content-Type': 'application/json',
+         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Max-Age": 1800
+     
+    };
 
 var corsOptions = {
   origin: "http://nktdc.vercel.app",
@@ -26,7 +36,7 @@ var corsOptions = {
   
 };
 
-app.use(cors(corsOptions));
+app.use(cors(headers));
 // app.use((req, res, next) => {
 //   res.setHeader(
 //     "Access-Control-Allow-Origin",
