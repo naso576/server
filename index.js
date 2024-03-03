@@ -26,25 +26,25 @@ var corsOptions = {
   
 };
 
-// app.use(cors(corsOptions));
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "http://nktdc.vercel.app"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type" );
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Max-Age", 1800);
+app.use(cors(corsOptions));
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "http://nktdc.vercel.app"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Content-Type" );
+//   res.setHeader("Content-Type", "application/json");
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   res.setHeader("Access-Control-Max-Age", 1800);
 
-  next();
-})
+//   next();
+// })
 
 // parse requests of content-type - application/json
 app.use(express.json());
