@@ -4,57 +4,27 @@ const bodyParser = require('body-parser')
 
 const db = require("./models");
 const { findAll , create,findPatient} = require("./controllers/patients.controller");
-const  {createHistory1,findHistory1, updateHistory,updateHistory1,updateHistory2, findPatientHistory ,updateNextVisitDate,findReminders } = require("./controllers/history1.controller");
+const  {createHistory1,findHistory1, updateHistory,updateHistory1,updateHistory2, findPatientHistory ,updateNextVisitDate } = require("./controllers/history1.controller");
 const {createTemplate, viewTemplates,cntTemplates,templateCounter,gettemplateCounter} = require("./controllers/templates.controller");
 const { findTabletsList,addTablet} = require("./controllers/tablets.controller");
+const {createUser} = require("./controllers/users.controller");
 
 const patientroute = require('./routes/patients.routes');
 const history1route =require('./routes/history1.routes');
 const templateroute = require('./routes/templates.routes');
-const tabletsroute = require('./routes/tablets.routes')
+const tabletsroute = require('./routes/tablets.routes');
+const usersRoute= require('./routes/users.routes')
 const app = express();
 // const findAll = require('./routes/patients.routes');
-  const headers = {
-       
-       'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
-      'Content-Type': 'application/json',
-         "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-         "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Credentials" : true,
-        "Access-Control-Max-Age": 1800
-     
-    };
 
 var corsOptions = {
-  origin: "http://nktdc.vercel.app",
-  // access-control-allow-credentials:true,
- credentials:true,            
- //    optionSuccessStatus:200,
-    allowedHeaders :'content-type',
-   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  
-  
+  origin: "http://localhost:3000",
+  credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+    allowedHeaders :'content-type'
 };
 
-app.use(cors(headers));
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "http://nktdc.vercel.app"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Content-Type" );
-//   res.setHeader("Content-Type", "application/json");
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-//   res.setHeader("Access-Control-Max-Age", 1800);
-
-//   next();
-// })
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -84,6 +54,7 @@ app.use("/api",patientroute);
 app.use("/api",history1route);
 app.use("/api",templateroute);
 app.use("/api",tabletsroute);
+app.use("/api",usersRoute);
 app.get("/find", findAll);
 app.get("/viewTemplates",viewTemplates);
 app.get("/cntTemplates",cntTemplates);
@@ -91,7 +62,8 @@ app.get("/findPatient/:id",findPatient);
 app.get("/findPatientHistory/:id",findPatientHistory);
 
 app.post("/register",cors(corsOptions), create, function(req,res)
-            {res.send({key:'successfull'})
+            {
+            res.send({key:'successfull'})
 
              }
         );
@@ -127,7 +99,7 @@ app.put("/updateNextVisitDate",cors(corsOptions), updateNextVisitDate , function
 }
 );
 
-app.get("/findReminders",findReminders);
+
 
 
 app.post("/createTemplate", cors(corsOptions),createTemplate, function(req,res){
@@ -144,13 +116,17 @@ app.post("/createTemplate", cors(corsOptions),createTemplate, function(req,res){
 
  
 app.get("/findTabletsList",findTabletsList);
+app.post("/createUser", cors(corsOptions),createUser, function(req,res){
+  // console.log("Using Body-parser: ", req.body.disease);
+   return res.send({key:'success'})
 
+ });
 
 
 require("./routes/patients.routes");
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
