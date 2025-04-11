@@ -126,7 +126,7 @@ app.post("/createTemplate", cors(corsOptions),createTemplate, function(req,res){
 
  
 app.get("/findTabletsList",findTabletsList);
-app.post("/createUser", cors(headers),createUser, function(req,res){
+app.post("/createUser", cors(corsOptions),createUser, function(req,res){
   // console.log("Using Body-parser: ", req.body.disease);
    return res.send({key:'success'})
 
