@@ -19,7 +19,7 @@ const app = express();
 
  const headers = {
         
-        'Access-Control-Allow-Origin': "https://nktdc.vercel.app",
+        'Access-Control-Allow-Origin': "http://nktdc.vercel.app",
        'Content-Type': 'application/json',
           "Access-Control-Allow-Methods" : "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
@@ -28,7 +28,7 @@ const app = express();
       
      };
 var corsOptions = {
-  origin: "https://nktdc.vercel.app",
+  origin: "http://nktdc.vercel.app",
   credentials:true,            //access-control-allow-credentials:true
     // optionSuccessStatus:200,
     allowedHeaders :'content-type',
