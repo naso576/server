@@ -28,12 +28,12 @@ exports.createUser = (req, res) => {
   user
     .save(user)
     .then(data => {
-      res.setHeader("Access-Control-Allow-Origin", "*")
-      res.setHeader("Access-Control-Allow-Credentials", "true");
-      res.setHeader("Access-Control-Max-Age", "1800");
-      res.setHeader("Access-Control-Allow-Headers", "content-type");
-      res.setHeader("Content-Type", "application/json");
-      res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+      // res.setHeader("Access-Control-Allow-Origin", "*")
+      // res.setHeader("Access-Control-Allow-Credentials", "true");
+      // res.setHeader("Access-Control-Max-Age", "1800");
+      // res.setHeader("Access-Control-Allow-Headers", "content-type");
+      // res.setHeader("Content-Type", "application/json");
+      // res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
 
       res.send(data);
       console.log("User created successfully", user);
