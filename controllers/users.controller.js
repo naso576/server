@@ -8,24 +8,28 @@ exports.createUser = (req, res) => {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
-
+  console.log("Calling createUser API", req.body.firstName);
+  // Validate request
   // Create a User
   const user = new User({
+    userDetails :
+    {
+    id: req.body.id,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
     phone: req.body.phone,
-    id: req.body.id,
     userType: req.body.userType,
     status: req.body.status
-  });
+  }});
 
   // Save User in the database
   user
     .save(user)
     .then(data => {
       res.send(data);
+      console.log("User created successfully", user);
     })
     .catch(err => {
       if (err) {
