@@ -18,10 +18,11 @@ const app = express();
 // const findAll = require('./routes/patients.routes');
 
 var corsOptions = {
-  origin: "https://nktdc.vercel.app/",
+  origin: "https://nktdc.vercel.app",
   credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
-    allowedHeaders :'content-type'
+    // optionSuccessStatus:200,
+    allowedHeaders :'content-type',
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 
 app.use(cors(corsOptions));
