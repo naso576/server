@@ -136,7 +136,7 @@ app.post("/createUser", cors(corsOptions),createUser, function(req,res){
 require("./routes/patients.routes");
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
