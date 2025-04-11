@@ -62,8 +62,7 @@ app.get("/findPatient/:id",findPatient);
 app.get("/findPatientHistory/:id",findPatientHistory);
 
 app.post("/register",cors(corsOptions), create, function(req,res)
-            {
-            res.send({key:'successfull'})
+            { return res.send({key:'successfull'})
 
              }
         );
