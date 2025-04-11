@@ -72,7 +72,7 @@ app.get("/cntTemplates",cntTemplates);
 app.get("/findPatient/:id",findPatient);
 app.get("/findPatientHistory/:id",findPatientHistory);
 
-app.post("/register",cors(corsOptions), create, function(req,res)
+app.post("/register",cors(headers), create, function(req,res)
             { return res.send({key:'successfull'})
 
              }
